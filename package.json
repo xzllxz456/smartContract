@@ -1,0 +1,21 @@
+{
+  "name": "hlf_web",
+  "version": "1.0.0",
+  "homepage": "www.contracttest.com",
+  "...": "... other standard package.json values",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fabric-ca-client": "^1.4.0",
+    "fabric-client": "^1.4.0",
+    "fabric-network": "^1.4.0",
+    "react-radio-group": "^3.0.3"
+  }
+}

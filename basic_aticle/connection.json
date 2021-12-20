@@ -1,0 +1,85 @@
+{
+    "name": "enet-enet",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Test1Org",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "testchannel1": {
+            "orderers": [
+                "orderer.testorderer.test"
+            ],
+            "peers": {
+                "peer0.test1.test": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                },
+                "peer0.test2.test": {}
+            }
+        }
+    },
+    "organizations": {
+        "Test1Org": {
+            "mspid": "Test1OrgMSP",
+            "peers": [
+                "peer0.test1.test"
+            ],
+            "certificateAuthorities": [
+                "ca.test1.test"
+            ]
+        },
+        "Test2Org": {
+            "mspid": "Test2OrgMSP",
+            "peers": [
+                "peer0.test2.test"
+            ],
+            "certificateAuthorities": [
+                "ca.test1.test"
+            ]
+        }
+
+    },
+    "orderers": {
+        "orderer.testorderer.test": {
+            "url": "grpcs://orderer.testorderer.test:7050",
+            "tlsCACerts": {
+                "path": "../crypto-config/ordererOrganizations/testorderer.test/tlsca/tlsca.testorderer.test-cert.pem"
+              }
+        }
+    },
+    "peers": {
+        "peer0.test1.test": {
+            "url": "grpcs://peer0.test1.test:7051",
+            "tlsCACerts": {
+                "path": "../crypto-config/peerOrganizations/test1.test/tlsca/tlsca.test1.test-cert.pem"
+              }
+        },
+        "peer0.test2.test": {
+            "url": "grpcs://peer0.test2.test:8051",
+            "tlsCACerts": {
+                "path": "../crypto-config/peerOrganizations/test2.test/tlsca/tlsca.test2.test-cert.pem"
+              }
+        }
+    },
+    
+    "certificateAuthorities": {
+        "ca.test1.test": {
+            "url": "https://ca.test1.test:7054",
+            "caName": "ca-test1",
+            "registrar": {
+                "enrollId": "admin",
+                "enrollSecret": "adminpw"
+            }
+        }
+    }
+}
