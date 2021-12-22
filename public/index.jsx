@@ -12,7 +12,6 @@ class Main extends Component{
                     <li><Link to="/payment">결제이력메뉴</Link></li>
                     <li><Link to="/calculate">정산이력메뉴</Link></li>
                     <li><Link to="/license">계약이력메뉴</Link></li>
-
                 </ul>
                 
                 {/* <div ></div> */}
@@ -83,7 +82,8 @@ class PaymentNetwork extends Component{
     createPayment=()=>{
         const data={
             'key':this.key.value,
-            'pnumber':this.pnumber.value,
+            // 'pnumber':this.pnumber.value,
+            'pnumber':this.key.value,
             'id':this.id.value,
             'store':this.store.value,
             'name':this.name.value,
@@ -109,8 +109,8 @@ class PaymentNetwork extends Component{
                 <h2>결제내역</h2>
                 {/* <button onClick={this.paymentWallet}>지갑생성</button> */}
                 <hr/>
-                    <span>결제내역 키 : </span><input ref={ref=>this.key=ref}/><br/>
-                    <span>결제 번호 : </span><input ref={ref=>this.pnumber=ref}/><br/>
+                    <span>결제내역 번호 : </span><input ref={ref=>this.key=ref}/><br/>
+                    {/* <span>결제 번호 : </span><input ref={ref=>this.pnumber=ref}/><br/> */}
                     <span>사용자 ID : </span><input ref={ref=>this.id=ref}/><br/>
                     <span>가계이름 : </span><input ref={ref=>this.store=ref}/><br/>
                     <span>이름 : </span><input ref={ref=>this.name=ref}/><br/>
@@ -118,7 +118,8 @@ class PaymentNetwork extends Component{
                     <span>가격 : </span><input ref={ref=>this.price=ref}/><br/>
                 <button onClick={this.createPayment}>결제이력등록하기</button>
                 <hr/></div>
-                KEY <input ref={ref=>this.querykey=ref}/>
+                <a>결제내역 번호 조회</a><br/> 
+                <input ref={ref=>this.querykey=ref}/>
                 <button onClick={this.query}> 결제이력 조회하기</button>
                 <button onClick={this.queryAll}> 결제이력 전체 조회하기</button><br/><hr/>
                 <div>{this.state.payment}</div>
@@ -133,7 +134,8 @@ class CalculateNetwork extends Component{
     createCalcul=()=>{
         const data={
             'key':this.key.value,
-            'cnumber':this.cnumber.value,
+            // 'cnumber':this.cnumber.value,
+            'cnumber':this.key.value,
             'userid':this.userid.value,
             'userprofile':this.userprofile.value,
             'totalrevenues':this.totalrevenues.value,
@@ -204,8 +206,8 @@ class CalculateNetwork extends Component{
                 <h2>정산내역</h2> 
                 {/* <button onClick={this.wallet}>지갑 생성</button> */}
                 <hr/>
-                정산내역 키 :            <input ref={ref=>this.key=ref}/><br/>
-                정산 번호 :     <input ref={ref=>this.cnumber=ref}/><br/>
+                정산내역 번호 :    <input ref={ref=>this.key=ref}/><br/>
+                {/* 정산 번호 :     <input ref={ref=>this.cnumber=ref}/><br/> */}
                 사용자 ID :    <input ref={ref=>this.userid=ref}/><br/>
                 사용자정보 :   <input ref={ref=>this.userprofile=ref}/><br/>
                 총 매출 :      <input ref={ref=>this.totalrevenues=ref}/><br/>
@@ -219,7 +221,8 @@ class CalculateNetwork extends Component{
                 <hr/>
                 {/* <button onClick={this.queryAllCalcul}>정산이력 조회</button> */}
                 
-                KEY <input ref={ref=>this.querykey=ref}/>
+                <a>정산내역 번호 조회</a><br/> 
+                <input ref={ref=>this.querykey=ref}/>
                 <button onClick={this.querycalcul}>정산이력 조회하기</button>
                 <button onClick={this.queryAllCalcul}>정산이력 전체 조회하기</button><br/><hr/>
                 <div>{this.state.allcalculs}</div>
@@ -238,7 +241,8 @@ class LicenseNetwork extends Component{
     createLicense=(e)=>{
         const data = {
             'key':this.key.value,
-            'cnumber':this.cnumber.value,
+            // 'cnumber':this.cnumber.value,
+            'cnumber':this.key.value,
             'userid':this.userid.value,
             'policy1':this.policy1,
             'policy2':this.policy2,
@@ -315,8 +319,8 @@ class LicenseNetwork extends Component{
                 <h2>계약내역</h2> 
                 {/* <button onClick={this.wallet}>지갑 생성</button> */}
                 <hr/>
-                계약내역 키 : <input ref={ref=>this.key=ref}/><br/>
-                계약번호 :  <input ref={ref=>this.cnumber=ref}/><br/>
+                계약내역 번호 : <input ref={ref=>this.key=ref}/><br/>
+                {/* 계약번호 :  <input ref={ref=>this.cnumber=ref}/><br/> */}
                 사용자 ID : <input ref={ref=>this.userid=ref}/><br/>
                 {/* 정책1 동의<input type={'radio'} name="policy1" value="true" ref={ref=>this.policy1=ref}/>
                     비동의<input type={'radio'} name="policy1" value="false" ref={ref=>this.policy1=ref}/><br/> */}               
@@ -334,7 +338,8 @@ class LicenseNetwork extends Component{
                 사용자정보 <input ref={ref=>this.userprofil=ref}/><br/>
                 <button onClick={this.createLicense}>계약이력 등록하기</button>
                 <hr/>
-                KEY <input ref={ref=>this.querykey=ref}/>
+                <a>계약내역 번호 조회</a> <br/>
+                <input ref={ref=>this.querykey=ref}/>
                 <button onClick={this.queryLicense}>계약이력 조회하기</button>
                 <button onClick={this.queryAllLicense}>계약이력 전체 조회</button><br/><hr/>
                 <div>{this.state.allLicense}</div>
@@ -362,7 +367,7 @@ ReactDOM.render(
             <Route path="first" component={FirstNetwork} />
             <Route path="calculate" component={CalculateNetwork} />
             <Route path="license" component={LicenseNetwork} />
-            <IndexRoute component={Home} />
+            <IndexRoute component={PaymentNetwork} />
         </Route>
     </Router>)
      , document.getElementById("root")
