@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+/*
 //const https=require("https");
 const fs = require('fs');
 const path = require('path');
@@ -174,4 +175,5 @@ router.get('/queryAllCalcul', async (req, res, next) => {
         res.json({'msg':'query error'});
     }
 });
+*/
 module.exports = router;

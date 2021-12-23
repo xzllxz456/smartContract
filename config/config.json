@@ -1,0 +1,11 @@
+{
+    "app": {
+
+    } ,
+    "api": {
+        "name" : "/api",
+        "payment": "/payment",
+        "calculate": "/calculate",
+        "license": "/license"
+    }
+}

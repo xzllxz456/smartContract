@@ -17,13 +17,13 @@ const sslServer = https.createServer(
     app
 );
 
-app.use(express.static(path.join(__dirname,"/public")));
+app.use(express.static(path.join(__dirname,"/static")));
 
 app.use(express.json());
 
-app.use('/payment', require('./routes/test_network_router'));
-app.use('/calculate', require('./routes/network_calculate'));
-app.use('/license', require('./routes/license_network'));
+app.use('/payment', require('./static/js/payment'));
+app.use('/calculate', require('./static/js/calculate'));
+app.use('/license', require('./static/js/license'));
 
 
 sslServer.listen(3000, '0.0.0.0', () => {
@@ -47,13 +47,13 @@ app2.use("*", (req, res, next) => {
 
 
 
-app2.use(express.static(path.join(__dirname,"/public")));
+app2.use(express.static(path.join(__dirname,"/static")));
 
 app2.use(express.json());
 
-app2.use('/payment', require('./routes/test_network_router'));
-app2.use('/calculate', require('./routes/network_calculate'));
-app2.use('/license', require('./routes/license_network'));
+app2.use('/payment', require('./static/js/payment'));
+app2.use('/calculate', require('./static/js/calculate'));
+app2.use('/license', require('./static/js/license'));
 
 
 

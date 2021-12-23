@@ -1,5 +1,14 @@
 const express = require('express');
 const router = express.Router();
+
+router.get('', async(req, res, next) => {
+    var wallet = getWallet();
+    //const adminExists = await wallet.exists('admin');
+});
+
+/*
+const express = require('express');
+const router = express.Router();
 //const https=require("https");
 const fs = require('fs');
 const path = require('path');
@@ -52,7 +61,7 @@ const sdkUtils = require('fabric-client/lib/utils.js');
 const req = require('express/lib/request');
 const logger = sdkUtils.getLogger('APPLICATION');
 
-/*GET*/
+/*GET
 router.get('/connect', async(req, res, next) => {
     try{
         // Check to see if we've already enrolled the admin user.
@@ -97,7 +106,7 @@ router.get('/connect', async(req, res, next) => {
 //지갑생성
 /* .... */
 
-/* invoke */
+/* invoke
 // create
 router.post('/send', async (req, res, next) => {
     try{
@@ -134,7 +143,7 @@ router.post('/send', async (req, res, next) => {
 
 
 
-/* query */
+/* query
 //queryAll
 router.get('/queryAll', async (req, res, next) => {
     try{
@@ -155,7 +164,7 @@ router.get('/queryAll', async (req, res, next) => {
         const result = await contract.evaluateTransaction('ReadAllPaymentCc');
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         res.json({'msg':result.toString()});
-    }catch{
+    } catch(e) {
         console.log(e);
         res.json({'msg':'query error'});
     }
@@ -181,7 +190,7 @@ router.post('/searchquery', async (req, res, next) => {
         const result = await contract.evaluateTransaction('ReadPaymentCc', `${req.body.pnumber}`);
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         res.json({'msg':result.toString()});
-    }catch{
+    } catch(e) {
         console.log(e);
         res.json({'msg':'query error'});
     }
@@ -190,9 +199,9 @@ router.post('/searchquery', async (req, res, next) => {
 
 //testquery
 router.get('/query', async (req, res, next) => {
-    try{
-    console.log("query...");
-    const userExists = await wallet.exists('user1');
+    try {
+        console.log("query...");
+        const userExists = await wallet.exists('user1');
         if (!userExists) {
             console.log('An identity for the user "user1" does not exist in the wallet');
             await res.json({'msg':'연결부터 해주세요'});
@@ -213,11 +222,11 @@ router.get('/query', async (req, res, next) => {
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         res.json({'msg':result.toString()});
  
-    }catch(e){
+    } catch(e) {
         console.log(e);
         res.json({'msg':'query error'});
     }
-    }
-);
+});
+*/
 module.exports = router;
 // read

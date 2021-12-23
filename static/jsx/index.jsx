@@ -1,6 +1,5 @@
 const {Component}=React;
 const {Router,Route,IndexRoute,Link}=ReactRouter;
-
  
 class Main extends Component{
     render(){
@@ -126,7 +125,7 @@ class PaymentNetwork extends Component{
         );
     }
 }
-class CalculateNetwork extends Component{  
+class CalculateNetwork extends Component{
     state={
         allcalculs:null
     }

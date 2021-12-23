@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+/*
 //const https=require("https");
 const fs = require('fs');
 const path = require('path');
@@ -84,7 +85,7 @@ router.get('/wallet', async(req, res, next) => {
         }
  
         res.json({"msg":"ok"});
-    }catch(e){
+    } catch(e) {
         console.log(e);
         res.json({"msg":"connect error"});
     }
@@ -167,9 +168,10 @@ router.get('/queryAlllicense', async (req, res, next) => {
         const result = await contract.evaluateTransaction('ReadAllLicense');
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
         res.json({'msg':result.toString()});
-    }catch{
+    }catch(e) {
         console.log(e);
         res.json({'msg':'query error'});
     }
 });
+*/
 module.exports = router;

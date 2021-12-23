@@ -1,9 +1,8 @@
 {
   "name": "hlf_web",
   "version": "1.0.0",
-  "homepage": "www.contracttest.com",
+  "homepage": "http://www.contracttest.com",
   "...": "... other standard package.json values",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -12,10 +11,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "fabric-ca-client": "^1.4.0",
     "fabric-client": "^1.4.0",
     "fabric-network": "^1.4.0",
     "react-radio-group": "^3.0.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xzllxz456/smartContract.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xzllxz456/smartContract/issues"
+  },
+  "description": ""
 }

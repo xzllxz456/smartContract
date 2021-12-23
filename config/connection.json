@@ -72,7 +72,7 @@
         }
     },
     
-    "certificateAuthorities": {
+    "": {
         "ca.test1.test": {
             "url": "https://ca.test1.test:7054",
             "caName": "ca-test1",
