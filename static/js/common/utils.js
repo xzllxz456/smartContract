@@ -1,17 +1,24 @@
-
-var getWallet = function() {
-    var path = require('path').join(process.cwd(), 'wallet');
-    return new FileSystemWallet(path);
+module.exports.getAbsolutePath = function(relativePath) {
+    return require('path').join(process.cwd(), relativePath);
 }
 
-var getCaUtils = function() {
-    var path = require('path').join(process.cwd(), 'config/connection.json');
+module.exports.getJsonToString = function(jsonPath) {
+    var path = this.getAbsolutePath(jsonPath);
     var json = require('fs').readFileSync(path, 'utf8');
-    var jsonStr = JSON.parse(json);
-    const caURL = jsonStr.certificateAuthorities['ca.test1.test'].url;
+    return JSON.parse(json);
+}
+
+module.exports.getWallet = function() {
+    return new FileSystemWallet( this.getAbsolutePath('wallet') );
+}
+
+module.exports.getCaUtils = function() {
+    
+    var json = this.getJsonToString('config/connection.json');
+    const caURL = json.certificateAuthorities['ca.test1.test'].url;
     return new FabricCAServices(caURL);
 }
 
-var getLogger = function() {
+module.exports.getLogger = function() {
     return require('fabric-client/lib/utils.js').getLogger('APPLICATION');
 }

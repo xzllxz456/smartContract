@@ -6,21 +6,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/1.0.2/ReactRouter.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>    
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    
+    <link href="./assets/ci/favicon.ico" rel="shortcut icon"/>
+    <link href="./assets/css/OpenSans/OpenSans.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
     <title>React App</title>
   </head>
-  <body>
-   <div id="root"></div>
+  <body class="boxed-layout">
+    <div id="root"></div>
    
-   <script src="./js/common/utils.js"></script>
-   <script src="./js/payment.js"></script>
-   <!--
-   <script src="./js/license.js"></script>
-   <script src="./js/calculate.js"></script>
-   -->
-   <script type="text/babel" src="./jsx/index.jsx"></script>
-   
+    <script src="./assets/lib/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="./assets/lib/babel-polyfill/7.10.4/polyfill.js"></script>
+    <script src="./assets/lib/axios/0.19.2/axios.min.js" ></script>
+    <script type="text/babel" src="./jsx/index.jsx"></script>
   </body>  
 </html>

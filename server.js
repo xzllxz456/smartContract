@@ -4,6 +4,23 @@ const https = require("https");
 const path = require("path");
 const fs = require('fs');
 
+//-------------------------------------------------------------------
+//  setting function
+//-------------------------------------------------------------------
+var setStaticResource = function(exp) {
+  exp.use(express.static(path.join(__dirname, "/static")));
+  exp.use(express.json());
+}
+
+var registerAPI = function(exp) {
+  exp.use('/api/payment', require('./static/js/payment'));
+  exp.use('/api/calculate', require('./static/js/calculate'));
+  exp.use('/api/license', require('./static/js/license'));
+}
+
+//-------------------------------------------------------------------
+//  variable set
+//-------------------------------------------------------------------
 // https
 const app = express();   // ?
 const sslServer = https.createServer(
@@ -17,12 +34,8 @@ sslServer.listen(3000, '0.0.0.0', () => {
   console.log(`Secure server port 3000`);
 });
 
-app.use(express.static(path.join(__dirname, "/static")));
-app.use(express.static(path.join(__dirname, "/static/js")));
-app.use(express.json());
-app.use('/payment', require('./static/js/payment'));
-//app.use('/calculate', require('./static/js/calculate'));
-//app.use('/license', require('./static/js/license'));
+setStaticResource(app);
+registerAPI(app);
 
 // http
 const app2 = express();  // ?
@@ -47,11 +60,6 @@ app2.use("*", (req, res, next) => {
   next();
 });
 
-app2.use(express.static(path.join(__dirname, "/static")));
-
-app2.use(express.json());
-
-app2.use('/payment', require('./static/js/payment'));
-//app2.use('/calculate', require('./static/js/calculate'));
-//app2.use('/license', require('./static/js/license'));
+setStaticResource(app2);
+registerAPI(app2);
 

@@ -1,9 +1,41 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', async(req, res, next) => {
-    alert("test");
-    //var wallet = getWallet();
+const rtUtils = require("./common/utils");
+
+// 결제 이력 저장
+router.post('', async(req, res, next) => {
+       
+    res.status(200);
+    res.json({"msg":"hkdang get ok"});
+    //let wallet = rtUtils.getWallet();
+    //const adminExists = await wallet.exists('admin');
+});
+
+// 결제 이력 호출
+router.get('', async(req, res, next) => {
+    
+    console.log('searchquery....');
+    console.log(`${req.body.key}`);
+    
+    let wallet = rtUtils.getWallet();
+    const userExists = await wallet.exists('user1');
+    
+    if (!userExists) {
+        console.log('An identity for the user "user1" does not exist in the wallet');
+        await res.json({'msg':'연결해주세요'});
+        return;
+    }
+
+    const gateway = new Gateway();
+    await gateway.connect(ccp, {wallet, identity: 'user1', discovery: { enabled: false } });
+
+    const network = await gateway.getNetwork('testchannel1');
+    const contract = network.getContract('payment');
+    const result = await contract.evaluateTransaction('ReadPaymentCc', `${req.body.pnumber}`);
+    res.json({'msg':result.toString()});
+
+    //let wallet = rtUtils.getWallet();
     //const adminExists = await wallet.exists('admin');
 });
 

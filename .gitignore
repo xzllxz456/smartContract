@@ -1,1 +1,8 @@
 node_modules/
+static/assets/crossbrowserjs/
+static/assets/css/
+static/assets/img/
+static/assets/js/
+static/assets/less/
+static/assets/plugins/
+static/assets/scss/
