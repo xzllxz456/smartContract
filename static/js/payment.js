@@ -1,8 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-router.get('', async(req, res, next) => {
-    var wallet = getWallet();
+router.get('/', async(req, res, next) => {
+    alert("test");
+    //var wallet = getWallet();
     //const adminExists = await wallet.exists('admin');
 });
 

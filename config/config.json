@@ -1,6 +1,6 @@
 {
     "app": {
-
+        "domain" : "smartcontract.co.kr"
     } ,
     "api": {
         "name" : "/api",

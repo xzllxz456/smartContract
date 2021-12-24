@@ -47,21 +47,7 @@ class PaymentNetwork extends Component {
             'product':this.product.value,
             'price':this.price.value
         }
-
-        /*
-        axios.get('/payment')
-        .then((res)=>{
-            console.log(res.data.msg);
-            alert('1');
-            this.setState({
-                
-            });
-        })
-        .catch((err)=>{
-            console.log(err);
-        });
-        */
-    }    
+    }
 
     render(){
         return(
@@ -77,14 +63,14 @@ class PaymentNetwork extends Component {
                     <span>이름 : </span><input ref={ref=>this.name=ref}/><br/>
                     <span>상품 : </span><input ref={ref=>this.product=ref}/><br/>
                     <span>가격 : </span><input ref={ref=>this.price=ref}/><br/>
-                <button onClick={this.createPayment}>결제이력등록하기</button> 
+                {/*<button onClick={this.createPayment}>결제이력등록하기</button> 
                 <hr/></div>
-                {/*
                 KEY <input ref={ref=>this.querykey=ref}/>
                 <button onClick={this.query}> 결제이력 조회하기</button>
                 <button onClick={this.queryAll}> 결제이력 전체 조회하기</button><br/><hr/>
                 <div>{this.state.payment}</div>
                 */}
+                </div>
             </div>
         );
     }
