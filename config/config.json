@@ -3,9 +3,10 @@
         "domain" : "smartcontract.co.kr"
     } ,
     "api": {
-        "name" : "/api",
-        "payment": "/payment",
-        "calculate": "/calculate",
-        "license": "/license"
+        "url": {
+            "payment": "/api/payment",
+            "calculate": "/api/calculate",
+            "license": "/api/license"
+        }
     }
 }

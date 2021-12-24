@@ -13,9 +13,9 @@ var setStaticResource = function(exp) {
 }
 
 var registerAPI = function(exp) {
-  exp.use('/api/payment', require('./static/js/payment'));
-  exp.use('/api/calculate', require('./static/js/calculate'));
-  exp.use('/api/license', require('./static/js/license'));
+  exp.use('/api/payment', require('./static/common/payment'));
+  exp.use('/api/calculate', require('./static/common/calculate'));
+  exp.use('/api/license', require('./static/common/license'));
 }
 
 //-------------------------------------------------------------------

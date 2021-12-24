@@ -12,13 +12,17 @@ module.exports.getWallet = function() {
     return new FileSystemWallet( this.getAbsolutePath('wallet') );
 }
 
-module.exports.getCaUtils = function() {
-    
+module.exports.getCaUtils = function() {    
     var json = this.getJsonToString('config/connection.json');
-    const caURL = json.certificateAuthorities['ca.test1.test'].url;
+    var caURL = json.certificateAuthorities['ca.test1.test'].url;
     return new FabricCAServices(caURL);
 }
 
 module.exports.getLogger = function() {
     return require('fabric-client/lib/utils.js').getLogger('APPLICATION');
+}
+
+module.exports.getApiUrl = function(key) {
+    var json = this.getJsonToString('config/config.json');   
+    return json.api.url[key];
 }
