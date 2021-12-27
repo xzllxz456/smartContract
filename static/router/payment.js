@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const rtUtils = require("./common/utils");
+const rtUtils = require("../common/utils");
 
 // 결제 이력 저장
 router.post('', async(req, res, next) => {
